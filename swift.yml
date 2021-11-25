@@ -1,0 +1,25 @@
+###################################
+# Run SwiftLint against code base #
+###################################
+
+name: SwiftLint
+
+on: [push, pull_request]
+
+jobs:
+  SwiftLint--fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: GitHub Action for SwiftLint with --fix
+        uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --fix
+  SwiftLint--strict:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: GitHub Action for SwiftLint with --strict
+        uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --strict
